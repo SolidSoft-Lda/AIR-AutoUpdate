@@ -1,0 +1,3 @@
+TASKKILL /IM MyApp.exe /F
+
+PING LOCALHOST -n 2 > NUL
