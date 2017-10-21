@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009"
+         xmlns:s="library://ns.adobe.com/flex/spark"
+         xmlns:controls="mx.controls.*"
+         xmlns:components="pt.solidsoft.webframework.components.*"
+         skinClass="pt.solidsoft.framework.skins.PanelHideTitleSkin"
+         width="800"
+         height="350">
+
+    <fx:Script>
+		<![CDATA[
+            import mx.core.FlexGlobals;
+
+            import pt.solidsoft.framework.displayobject.PopUp;
+
+            private static var updaterDialog:UpdaterDialog = null;
+
+            [Bindable]
+            public static var splashScreen:Class = null;
+
+            public static function show(progress:Number = 0):void
+            {
+                if (updaterDialog == null)
+                {
+                    updaterDialog = PopUp.add(UpdaterDialog, true) as UpdaterDialog;
+
+                    var splashWindowinitOptions:NativeWindowInitOptions = new NativeWindowInitOptions();
+                    splashWindowinitOptions.transparent = true;
+                    splashWindowinitOptions.systemChrome = NativeWindowSystemChrome.NONE;
+                    splashWindowinitOptions.type = NativeWindowType.UTILITY;
+
+                    var splashWindow:NativeWindow = new NativeWindow(splashWindowinitOptions);
+                    splashWindow.stage.scaleMode = StageScaleMode.NO_SCALE;
+                    splashWindow.stage.align = StageAlign.TOP_LEFT;
+                    splashWindow.stage.addChild(updaterDialog);
+                    splashWindow.x = 0;
+                    splashWindow.y = 0;
+                    splashWindow.width = FlexGlobals.topLevelApplication.width;
+                    splashWindow.height = FlexGlobals.topLevelApplication.height;
+                    splashWindow.activate();
+                }
+
+                updaterDialog.progressBar.visible = progress > 0;
+                updaterDialog.indeterminateBar.visible = progress == 0;
+                updaterDialog.progressBar.setProgress(progress, 100);
+            }
+        ]]>
+	</fx:Script>
+
+    <s:Group width="100%"
+             height="100%">
+        <components:Image source="{splashScreen}"
+                          width="100%"
+                          height="100%"/>
+        <s:VGroup horizontalAlign="center"
+                  verticalAlign="bottom"
+                  padding="20"
+                  width="100%"
+                  height="100%">
+            <controls:ProgressBar id="progressBar"
+                                  trackHeight="20"
+                                  mode="manual"
+                                  label="Downloading: %3%"
+                                  labelPlacement="bottom"
+                                  includeInLayout="{progressBar.visible}"
+                                  width="300"/>
+            <components:ProgressIndeterminateBar id="indeterminateBar"
+                                                 width="300"
+                                                 visible="false"
+                                                 label="Processing ..."
+                                                 labelPlacement="bottom"
+                                                 includeInLayout="{indeterminateBar.visible}"/>
+        </s:VGroup>
+    </s:Group>
+</s:Panel>
