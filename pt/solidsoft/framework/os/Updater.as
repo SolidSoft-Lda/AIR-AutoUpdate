@@ -1,4 +1,4 @@
-package pt.solidsoft.framework.os
+package pt.solidsoft.webframework.os
 {
 	import flash.desktop.NativeApplication;
 	import flash.desktop.NativeProcess;
