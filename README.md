@@ -8,13 +8,13 @@ The common issues with AIR shared runtime are:
 * Forces users to install AIR runtime (this can be integrated with a Windows installer and macOS package installer);
 * Annoys user with AIR updates (users hate this);
 * Sometimes (not usual but happens), users can't install AIR because of Windows system or registry issues (mainly on very old Windows XP installations);
-* ANE (AIR extensions to take advantage of OS specific features) are only available on Captive Runtime;
-* The new Windows x64 it's available only on the Captive Runtime
 
 On the other hand AIR provides a way to bundle the runtime along with your App called Captive Runtime:
 * No need to install a separated runtime (can even work on a pen-drive);
 * Don't forces the user to update the runtime;
 * You know the runtime that is runtime along with your App and avoid issues related with different runtime versions between users and the developer machine.
+* ANE (AIR extensions to take advantage of OS specific features) are only available on Captive Runtime;
+* The new Windows x64 it's available only on the Captive Runtime
 
 What's the issue with Captive Runtime:
 * You have to do a separated build on a macOS (if you want to provide that);
