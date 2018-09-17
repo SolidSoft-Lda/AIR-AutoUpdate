@@ -80,3 +80,8 @@ Resources/META-INF/signatures.xml
 Resources/META-INF/AIR/application.xml
 Resources/META-INF/AIR/hash
 `````
+## License
+
+- This library is MIT licensed
+- Feel free to use it in any way you wish
+- Please contribute improvements back to this repository!
