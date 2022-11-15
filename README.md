@@ -1,3 +1,10 @@
+[![Not Maintained](https://img.shields.io/badge/Maintenance%20Level-Not%20Maintained-yellow.svg)](https://gist.github.com/cheerfulstoic/d107229326a01ff0f333a1d3476e068d)
+
+# Note from the maintainer
+AIR-AutoUpdate is a really solid piece of software engineering and is rarely updated exactly for this reason.
+I used it in my other projects.
+I moved to other technologies, so it fulfilled the purpose and I don't need it any more and it will not receive any more updates.
+You can forke if you want.
 
 # AIR AutoUpdate 
 
